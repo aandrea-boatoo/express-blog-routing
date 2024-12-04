@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Edu TAS Beginner", serif;
+}
+
+/* UTILITIES */
+.bordo {
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+
+.d-none {
+    display: none;
+}
+
+body {
+    background-image: url(../img/cork.png);
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    background-image: url(../img/wall.png);
+}
+
+h1 {
+    font-size: 3em;
+    align-self: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+#cont {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 930px;
+    margin: 15px auto;
+    padding: 30px;
+}
+
+.card {
+    width: 31%;
+    margin: 20px 0;
+    background-color: aliceblue;
+    position: relative;
+    box-shadow: 1px 0 rgba(0, 0, 0, 0.482);
+    transition: all 0.5s;
+}
+
+
+.pin {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+}
+
+figcaption {
+    margin: 0 15px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.foto {
+    width: calc(100% - 30px);
+    margin: 15px;
+    aspect-ratio: 1;
+}
+
+.card:hover {
+    scale: 1.1;
+    rotate: 10deg;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 5px 3px 40px rgb(0, 0, 0);
+}
+
+.card:hover .pin {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+#overcont {
+    position: relative;
+    width: 90%;
+    max-width: 840px;
+    margin: 75px auto;
+}
+
+#contImg {
+    position: relative;
+    max-width: 400px;
+    width: 80%;
+    margin: 30px auto 5px;
+}
+
+#overlay img {
+    width: 100%;
+    display: block;
+}
+
+#overlay button {
+    background-color: aliceblue;
+    color: red;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    translate: -50% -50%;
+    z-index: 100;
+    border-radius: 50%;
+    width: 45px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+p {
+    max-width: 880px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.675);
+    color: aliceblue;
+    /* position: absolute; */
+    /* translate: -50% -100%; */
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+
+/* responsive */
+@media screen and (max-width: 768px) {
+    .card {
+        width: 40%;
+    }
+
+    p {
+        font-size: x-large;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .card {
+        width: 75%;
+    }
+
+    p {
+        font-size: large;
+    }
+}
