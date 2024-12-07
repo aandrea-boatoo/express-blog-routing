@@ -1,31 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const posts = require('../data/post');
+const { index, show, update, modify, destroy } = require('../controllers/postControl');
 // index
 
-router.get('/', function (req, res) {
-    res.send("Lista dei post")
-
-});
+router.get('/', index);
 
 // show
-router.get('/:id', function (req, res) {
-    res.send("Dettagli del post (get e :id)")
-});
+router.get('/:id', show);
 
 // update
-router.post('/', function (req, res) {
-    res.send("Creazione nuovo post (post)")
-});
+router.post('/', update);
 
 // modify
-router.patch('/:id', function (req, res) {
-    res.send("Modifica parziale del post (patch e :id)")
-});
+router.patch('/:id', modify);
 
 // destroy
-router.delete('/:id', function (req, res) {
-    res.send("Eliminazione del post (get)")
-});
+router.delete('/:id', destroy);
 
 module.exports = router;
