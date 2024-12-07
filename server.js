@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const posts = require('./data/post.js');
-
+const router = require('./route/postRoute.js');
 // Asset statici
 app.use(express.static('public'));
+app.use(router)
 
 
 // Rotte
@@ -22,37 +23,6 @@ app.get('/bacheca', (req, res) => {
     }
     res.json(response);
 })
-
-// ROTTE CRUD
-
-// index
-
-app.get('/posts', function (req, res) {
-    res.send("Lista dei post (get)")
-});
-
-// show
-app.get('/posts:id', function (req, res) {
-    res.send("Dettagli del post (get e :id)")
-});
-
-// update
-app.post('/posts', function (req, res) {
-    res.send("Creazione nuovo post (post)")
-});
-
-// modify
-app.patch('/posts:id', function (req, res) {
-    res.send("Modifica parziale del post (patch e :id)")
-});
-
-// destroy
-app.delete('/posts:id', function (req, res) {
-    res.send("Eliminazione del post (get)")
-});
-
-
-
 
 app.all('*', (req, res) => {
     res.status(404).send('<h1>Pages not found(error404)</h1>');
