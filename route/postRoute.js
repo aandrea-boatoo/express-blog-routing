@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { index, show, update, modify, destroy } = require('../controllers/postControl');
+const { index, show, store, update, modify, destroy } = require('../controllers/postControl');
 // index
 
 router.get('/', index);
@@ -8,8 +8,11 @@ router.get('/', index);
 // show
 router.get('/:id', show);
 
+// store
+router.post('/', store);
+
 // update
-router.post('/', update);
+router.put('/:id', update)
 
 // modify
 router.patch('/:id', modify);

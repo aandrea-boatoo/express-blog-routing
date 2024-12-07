@@ -13,16 +13,48 @@ function show(req, res) {
         res.json({ message: "post non trovato" })
     }
 }
+
+function store(req, res) {
+    //     // creazione nuovo id
+    //     let newId = 0;
+    //     for (let i = 0; i < posts.length; i++) {
+    //         if (posts[i].id > newId) {
+    //             newId = posts[i].id;
+    //         }
+    //     }
+    //     newId += 1 //?????????????
+
+    //     // creazione nuovo elemento
+    //     const newPost = {
+    //         id: newId,
+    //         title: req.body.title,
+    //         content: req.body.content,
+    //         img: req.body.img,
+    //         tags: req.body.tags,
+    //     }
+    //     posts.push(newPosts);
+    //     res.status(201).json(newPost);
+    res.send("creazione post");
+}
 function update(req, res) {
+    const id = parseInt(req.params.id);
     res.send("Creazione nuovo post (post)")
 }
 function modify(req, res) {
     res.send("Modifica parziale del post (patch e :id)")
 }
 function destroy(req, res) {
-    res.send("Eliminazione del post (get)")
+    const id = parseInt(req.params.id);
+    const indexPost = posts.findIndex((post) => post.id === id);
+    if (indexPost !== -1) {
+        posts.splice(indexPost, 1);
+        res.status(201).send("post cancellato");
+    } else {
+        res.status(404).json({ message: "post non trovato" })
+    }
+    console.log(posts);
 }
 
 module.exports = {
-    index, show, update, modify, destroy
+    index, show, store, update, modify, destroy
 }
