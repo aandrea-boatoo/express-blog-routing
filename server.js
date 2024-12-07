@@ -1,17 +1,19 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-const posts = require('./data/post.js');
-const router = require('./route/postRoute.js');
+const posts = require('./data/post');
+const postRouter = require('./route/postRoute.js');
 // Asset statici
 app.use(express.static('public'));
-app.use(router)
-
 
 // Rotte
 app.get('/', (req, res) => {
     res.sendFile("index.html", { root: __dirname + "/pages" });
 })
+
+
+// COLLEGAMENTO ROUTERS
+app.use('/posts', postRouter);
 
 app.get('/bacheca', (req, res) => {
     const post = req.query.titolo;
