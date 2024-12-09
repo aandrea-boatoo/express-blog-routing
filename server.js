@@ -6,6 +6,7 @@ const postRouter = require('./route/postRoute.js');
 // Asset statici
 app.use(express.static('public'));
 
+
 // Rotte
 app.get('/', (req, res) => {
     res.sendFile("index.html", { root: __dirname + "/pages" });
@@ -14,6 +15,9 @@ app.get('/', (req, res) => {
 
 // COLLEGAMENTO ROUTERS
 app.use('/posts', postRouter);
+
+// Json BODY
+app.use(express.json());
 
 app.get('/bacheca', (req, res) => {
     const post = req.query.titolo;
